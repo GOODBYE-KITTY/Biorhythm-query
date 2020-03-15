@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include<iostream>
+int main()
+{
+   int year,mon,mday,x,y,z,a,b,c,d,p,e,i;
+   time_t t1,t2;
+   int days;
+   struct tm tm;
+   printf("请输入您的生日以及当前日期，请用逗号隔开:");
+   scanf("%d,%d,%d,%d,%d,%d",&year,&mon,&mday,&x,&y,&z);
+   memset(&tm, 0, sizeof(tm));//出生到测定天数
+   tm.tm_year = year - 1900;
+   tm.tm_mon = mon - 1;
+   tm.tm_mday = mday;
+   t1 = mktime(&tm);
+   t2 = time(NULL);
+   days = (t2-t1) / (24 * 3600);
+   b=0;
+   for(i=year;i<=x;i++)//闰年数
+    {
+		if((i%4==0 && i%100!=0) || i%400==0)
+		   b++;
+    }
+
+ if(y==2) c=31;//生日离1.1的天数
+ else if(mon==3) c=59;
+ else if(mon==4) c=90;
+ else if(mon==5) c=120;
+ else if(mon==6) c=151;
+ else if(mon==7) c=181;
+ else if(mon==8) c=212;
+ else if(mon==9) c=243;
+ else if(mon==10) c=273;
+ else if(mon==11) c=304;
+ else c=334;
+ c=c+mday;
