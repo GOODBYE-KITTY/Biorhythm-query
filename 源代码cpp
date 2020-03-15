@@ -37,3 +37,50 @@ int main()
  else if(mon==11) c=304;
  else c=334;
  c=c+mday;
+
+ if(mon==2) d=31;//当前日期离1.1的天数
+ else if(y==3) d=59;
+ else if(y==4) d=90;
+ else if(y==5) d=120;
+ else if(y==6) d=151;
+ else if(y==7) d=181;
+ else if(y==8) d=212;
+ else if(y==9) d=243;
+ else if(y==10) d=273;
+ else if(y==11) d=304;
+ else d=334;
+ d=d+z;
+
+ a=days*365+b-c+d;//计算最后结果
+	 p=a%23;
+	 e=a%28;
+	 i=a%33;
+	 if(p==0)
+		printf("您的体力处于低潮期\n");
+	if(p<12)
+		printf("您的体力处于高潮期\n");
+	if(p==12)	
+		printf("您的体力处于临界期\n");
+	if(p>12)	
+		printf("您的体力处于低潮期\n");
+	if(e==0)
+		printf("您的情绪处于低潮期\n");
+	if(e<14)
+		printf("您的情绪处于高潮期\n");
+	if(e==14)
+		printf("您的情绪处于临界期\n");
+	if(e>14)
+		printf("您的情绪处于低潮期\n");
+	if(i==0)	
+		printf("您的智力处于低潮期\n");
+	if(i<17)	
+		printf("您的智力处于高潮期\n");
+	if(i==17)
+		printf("您的智力处于临界期\n");
+	if(i>17)	
+		printf("您的智力处于低潮期\n");
+	 printf("体力=%d\n",p);
+	 printf("情绪=%d\n",e);
+	 printf("智力=%d\n",i);
+	 system("pause");
+}
